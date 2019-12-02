@@ -6,6 +6,7 @@ ENV PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+        curl \
         make \
         wget \
         libfontconfig1-dev \
