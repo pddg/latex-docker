@@ -1,0 +1,5 @@
+*
+!.gitignore
+!.latexmkrc
+!Dockerfile
+!README.md
