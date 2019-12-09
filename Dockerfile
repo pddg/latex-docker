@@ -56,4 +56,5 @@ RUN tlmgr update --self && \
 WORKDIR /workdir
 
 COPY .latexmkrc /
+COPY .latexmkrc /root/
 
