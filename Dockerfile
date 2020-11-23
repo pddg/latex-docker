@@ -1,8 +1,8 @@
-FROM ubuntu:19.10
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS=yes
-ENV PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
+ENV PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -24,7 +24,7 @@ RUN apt-get update && \
         python3-dev && \
     pip3 install --no-cache-dir pygments==2.5.2 && \
     mkdir /tmp/install-tl-unx && \
-    wget -O - ftp://tug.org/historic/systems/texlive/2019/install-tl-unx.tar.gz \
+    wget -O - ftp://tug.org/historic/systems/texlive/2020/install-tl-unx.tar.gz \
         | tar -xzv -C /tmp/install-tl-unx --strip-components=1 && \
     /bin/echo -e 'selected_scheme scheme-basic\ntlpdbopt_install_docfiles 0\ntlpdbopt_install_srcfiles 0' \
         > /tmp/install-tl-unx/texlive.profile && \
