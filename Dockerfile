@@ -36,7 +36,7 @@ RUN apt-get update && \
         python3 && \
     apt-get clean && \
     apt-get autoremove -y && \
-    rm -rf /var/lib/apt/lists/* 
+    rm -rf /var/lib/apt/lists/*
 
 RUN tlmgr update --self && \
     tlmgr install \
@@ -51,12 +51,12 @@ RUN tlmgr update --self && \
         collection-plaingeneric \
         collection-xetex \
         latexmk \
-        latexdiff \ 
+        latexdiff \
         siunitx && \
-    wget https://raw.githubusercontent.com/being24/docker-alpine-texlive-ja/master/jlisting.sty && \
-    mv jlisting.sty /usr/local/texlive/2021/texmf-dist/tex/latex/listing && \
-    chmod +r /usr/local/texlive/2021/texmf-dist/tex/latex/listing/jlisting.sty && \
-    mktexlsr 
+    wget https://raw.githubusercontent.com/being24/plistings/master/plistings.sty && \
+    mv plistings.sty /usr/local/texlive/2021/texmf-dist/tex/latex/listing && \
+    chmod +r /usr/local/texlive/2021/texmf-dist/tex/latex/listing/plistings.sty && \
+    mktexlsr
 
 WORKDIR /workdir
 
