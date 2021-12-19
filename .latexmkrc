@@ -1,7 +1,8 @@
 #!/usr/bin/env perl
 
-$latex = 'platex -synctex=1 -halt-on-error %O %S';
-$latex_silent = 'platex -synctex=1 -halt-on-error -interaction=batchmode %O %S';
+# これを編集する
+$latex = 'ptex2pdf -synctex=1 -halt-on-error -l -u %O %S';
+$latex_silent = 'ptex2pdf -synctex=1 -halt-on-error -interaction=batchmode -l -u %O %S';
 $bibtex = 'pbibtex -kanji=utf8 %O %B';
 $dvipdf = 'dvipdfmx %O -o %D %S';
 $makeindex = 'mendex %O -o %D %S';
