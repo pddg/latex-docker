@@ -1,6 +1,1 @@
-*
-!LICENSE
-!.gitignore
-!.latexmkrc
-!Dockerfile
-!README.md
+.DS_Store
