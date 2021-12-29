@@ -1,8 +1,10 @@
 FROM ubuntu:20.04
 
+ARG TEXLIVE_VERSION=2021
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS=yes
-ENV PATH="/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
+ENV PATH="/usr/local/texlive/bin:$PATH"
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -22,15 +24,16 @@ RUN apt-get update && \
         build-essential \
         python3-pip \
         python3-dev && \
-    pip3 install --no-cache-dir pygments==2.5.2 && \
+    pip3 install --no-cache-dir pygments && \
     mkdir /tmp/install-tl-unx && \
-    wget -O - ftp://tug.org/historic/systems/texlive/2020/install-tl-unx.tar.gz \
+    wget -O - ftp://tug.org/historic/systems/texlive/${TEXLIVE_VERSION}/install-tl-unx.tar.gz \
         | tar -xzv -C /tmp/install-tl-unx --strip-components=1 && \
     /bin/echo -e 'selected_scheme scheme-basic\ntlpdbopt_install_docfiles 0\ntlpdbopt_install_srcfiles 0' \
         > /tmp/install-tl-unx/texlive.profile && \
     /tmp/install-tl-unx/install-tl \
         --profile /tmp/install-tl-unx/texlive.profile && \
     rm -r /tmp/install-tl-unx && \
+    ln -sf /usr/local/texlive/${TEXLIVE_VERSION}/bin/$(uname -m)-linux /usr/local/texlive/bin && \
     apt-get remove -y --purge \
         build-essential \
         python3 && \
