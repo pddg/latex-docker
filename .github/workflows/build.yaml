@@ -51,6 +51,8 @@ jobs:
     if: ${{ github.event_name != 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: -1
       - name: create tag
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/latex
