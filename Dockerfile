@@ -9,6 +9,7 @@ RUN apt-get update && \
         curl \
         make \
         wget \
+        python3 \
         libfontconfig1-dev \
         libfreetype6-dev \
         ghostscript \
@@ -20,7 +21,6 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
-        python3 \
         python3-pip \
         python3-dev && \
     pip3 install --no-cache-dir pygments==2.10.0 && \
