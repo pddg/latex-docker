@@ -20,6 +20,7 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
+        python3 \
         python3-pip \
         python3-dev && \
     pip3 install --no-cache-dir pygments==2.10.0 && \
