@@ -33,8 +33,7 @@ RUN apt-get update && \
         --profile /tmp/install-tl-unx/texlive.profile && \
     rm -r /tmp/install-tl-unx && \
     apt-get remove -y --purge \
-        build-essential \
-        python3 && \
+        build-essential &&\
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
