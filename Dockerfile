@@ -14,6 +14,8 @@ RUN apt-get update && \
         libfreetype6-dev \
         ghostscript \
         perl && \
+        poppler-utils && \
+        ttf-mscorefonts-installer && \
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*

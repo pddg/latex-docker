@@ -27,3 +27,8 @@ pddg
 
 MIT
 
+## fontの埋め込み
+
+```bash
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dEmbedAllFonts=true -sOutputFile=output.pdf -f input.pdf
+```
