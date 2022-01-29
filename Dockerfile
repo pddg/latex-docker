@@ -13,8 +13,8 @@ RUN apt-get update && \
         libfontconfig1-dev \
         libfreetype6-dev \
         ghostscript \
-        perl && \
-        poppler-utils && \
+        perl \
+        poppler-utils \
         ttf-mscorefonts-installer && \
     apt-get clean && \
     apt-get autoremove -y && \
