@@ -17,7 +17,7 @@ jobs:
           - amd64
           - arm64
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: create tag
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/latex
@@ -50,7 +50,7 @@ jobs:
     needs: build
     if: ${{ github.event_name != 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: -1
       - name: create tag
