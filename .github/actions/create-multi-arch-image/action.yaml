@@ -1,0 +1,37 @@
+name: "Create multi-arch docker image"
+inputs:
+  registry:
+    required: true
+    description: "Image registry FQDN"
+  username:
+    required: true
+    description: "Login username for the registry"
+  password:
+    required: true
+    description: "Login password for the registry"
+  image:
+    required: true
+    description: "Image tag"
+  image-version:
+    required: true
+    description: "Image version"
+runs:
+  using: "composite"
+  steps:
+    - name: Login to the registry
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ inputs.registry }}
+        username: ${{ inputs.username }}
+        password: ${{ inputs.password }}
+    - name: Create multi-arch image manifest
+      run: |
+        IMAGE=${{ inputs.image }}:${{ inputs.image-version }}
+        docker manifest create ${IMAGE} \
+            ${IMAGE}-amd64 \
+            ${IMAGE}-arm64
+        docker manifest push ${IMAGE}
+        docker manifest create ${IMAGE}:latest \
+            ${IMAGE}-amd64 \
+            ${IMAGE}-arm64
+        docker manifest push ${IMAGE}:latest
