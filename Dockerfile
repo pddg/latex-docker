@@ -31,7 +31,8 @@ RUN apt-get update && \
     /bin/echo -e 'selected_scheme scheme-basic\ntlpdbopt_install_docfiles 0\ntlpdbopt_install_srcfiles 0' \
         > /tmp/install-tl-unx/texlive.profile && \
     /tmp/install-tl-unx/install-tl \
-        --profile /tmp/install-tl-unx/texlive.profile && \
+        --profile /tmp/install-tl-unx/texlive.profile \
+        -repository  ftp://tug.org/texlive/historic/${TEXLIVE_VERSION}/tlnet-final/ && \
     rm -r /tmp/install-tl-unx && \
     ln -sf /usr/local/texlive/${TEXLIVE_VERSION}/bin/$(uname -m)-linux /usr/local/texlive/bin && \
     apt-get remove -y --purge \
