@@ -25,6 +25,7 @@ runs:
         username: ${{ inputs.username }}
         password: ${{ inputs.password }}
     - name: Create multi-arch image manifest
+      shell: bash
       run: |
         IMAGE=${{ inputs.image }}:${{ inputs.image-version }}
         docker manifest create ${IMAGE} \
