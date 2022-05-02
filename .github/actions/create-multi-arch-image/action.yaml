@@ -35,4 +35,4 @@ runs:
         docker manifest create ${{ inputs.image }}:latest \
             ${{ inputs.image }}:latest-amd64 \
             ${{ inputs.image }}:latest-arm64
-        docker manifest push ${IMAGE}:latest
+        docker manifest push ${{ inputs.image }}:latest
