@@ -32,7 +32,7 @@ runs:
             ${IMAGE}-amd64 \
             ${IMAGE}-arm64
         docker manifest push ${IMAGE}
-        docker manifest create ${IMAGE}:latest \
-            ${IMAGE}-amd64 \
-            ${IMAGE}-arm64
+        docker manifest create ${{ inputs.image }}:latest \
+            ${{ inputs.image }}:latest-amd64 \
+            ${{ inputs.image }}:latest-arm64
         docker manifest push ${IMAGE}:latest
