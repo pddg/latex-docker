@@ -47,6 +47,7 @@ jobs:
           file: ./Dockerfile
           platforms: linux/${{ matrix.arch }}
           push: ${{ github.event_name != 'pull_request' }}
+          provenance: false
           tags: |
             ghcr.io/pddg/latex:latest-${{ matrix.arch }}
             ghcr.io/pddg/latex:${{ env.VERSION }}-${{ matrix.arch }}
